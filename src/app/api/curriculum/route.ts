@@ -4,6 +4,7 @@ import { supabase } from "@/lib/supabase";
 
 const schema = z.object({
   fullName: z.string().min(2),
+  email: z.string().email(),
   bottleneck: z.string().min(3),
   interests: z.array(z.string()).min(1),
 });
@@ -22,6 +23,7 @@ export async function POST(request: Request) {
 
     const { error } = await supabase.from("curriculum_interests").insert({
       full_name: parsed.data.fullName,
+      email: parsed.data.email,
       bottleneck: parsed.data.bottleneck,
       interests: parsed.data.interests,
     });

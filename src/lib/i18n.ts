@@ -45,6 +45,9 @@ export const translations = {
       "Tell us exactly what you want to learn, and we will build live modules around your answers.",
     "form.fullName": "Full Name",
     "form.fullNamePlaceholder": "John Doe",
+    "form.email": "Email",
+    "form.emailPlaceholder": "john@example.com",
+    "form.error.email": "Please enter a valid email address",
     "form.bottleneck":
       "What is your main professional bottleneck or manual task right now?",
     "form.bottleneckPlaceholder":
@@ -118,6 +121,9 @@ export const translations = {
       "Cuéntanos exactamente qué quieres aprender y construiremos módulos en vivo basados en tus respuestas.",
     "form.fullName": "Nombre Completo",
     "form.fullNamePlaceholder": "Juan Pérez",
+    "form.email": "Correo Electrónico",
+    "form.emailPlaceholder": "juan@ejemplo.com",
+    "form.error.email": "Por favor ingresa un correo electrónico válido",
     "form.bottleneck":
       "¿Cuál es tu principal cuello de botella o tarea manual en tu trabajo actual?",
     "form.bottleneckPlaceholder":

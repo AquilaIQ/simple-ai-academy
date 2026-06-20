@@ -24,6 +24,7 @@ export default function CurriculumFormSection() {
 
   const schema = z.object({
     fullName: z.string().min(2, t("form.error.fullName")),
+    email: z.string().email(t("form.error.email")),
     bottleneck: z.string().min(3, t("form.error.bottleneck")),
     interests: z.array(z.string()).min(1, t("form.error.interests")),
   });
@@ -154,6 +155,32 @@ export default function CurriculumFormSection() {
                     {errors.fullName && (
                       <p className="text-sm text-error">
                         {errors.fullName.message}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-on-surface"
+                    >
+                      {t("form.email")}
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder={t("form.emailPlaceholder")}
+                      className={`w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors font-body-md text-body-md bg-white ${
+                        errors.email
+                          ? "border-error focus:border-error"
+                          : "border-outline-variant focus:border-primary"
+                      }`}
+                      {...register("email")}
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-error">
+                        {errors.email.message}
                       </p>
                     )}
                   </div>
