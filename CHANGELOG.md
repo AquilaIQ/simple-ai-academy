@@ -1,0 +1,25 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [Unreleased]
+
+### feat
+- Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Framer Motion
+- Add shared animation variants (fadeInUp, scaleIn, staggerContainer, slideInLeft, slideInRight)
+- Add `cn()` utility for class merging with clsx and tailwind-merge
+- Build responsive Header with mobile drawer, skip link, and keyboard accessibility
+- Build HeroSection with decorative blur orbs, WhatsApp CTA, and scroll-triggered animations
+- Build CoreValuesSection with 3-column card grid and staggered scale-in animations
+- Build CurriculumFormSection with React Hook Form + Zod validation, multi-select checkboxes, and animated success state
+- Build FooterSection with repeated primary CTA and minimalist copyright
+- Add `/api/curriculum` API route for form submission with Zod validation
+- Configure static export (`output: "export"`) for fast static hosting
+- Add Geist font via next/font for optimal loading performance
+- Update DESIGN.md with NWRA PRD-inspired animation system, component inventory, form spec, responsive behavior, accessibility, and file structure
+
+### design
+- Adopt warm minimalist aesthetic with Teal, Coral, and Sand accent palette
+- Use Level 1 ambient shadows (0px 4px 20px rgba(0,0,0,0.04)) on cards
+- Apply generous macro-whitespace between major sections for breathing room
+- Implement focus-visible rings and reduced-motion awareness for accessibility
