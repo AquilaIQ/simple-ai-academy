@@ -73,8 +73,8 @@ export default function HeroSection() {
               />
               {t("hero.videoFallback")}
             </video>
-            {/* Bottom label bar */}
-            <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-6 py-3">
+            {/* Top label bar */}
+            <div className="absolute top-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-6 py-3">
               <p className="text-white text-sm font-medium text-center">
                 {t("hero.videoLabel")}
               </p>
