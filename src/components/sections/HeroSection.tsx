@@ -60,46 +60,36 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Hero video card */}
+        {/* Hero video */}
         <motion.div
           variants={fadeInUp}
           className="mt-16 w-full max-w-5xl"
         >
-          <div className="relative bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary-container/5 pointer-events-none" />
-            <div className="relative flex flex-col md:flex-row items-center gap-0">
-              <div className="flex-1 p-8 md:p-12 space-y-4">
-                <div className="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
-                  Live Session Preview
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-on-background">
-                  Practical Automation for Content Teams
-                </h3>
-                <p className="text-on-surface-variant leading-relaxed">
-                  Watch as we build a complete content pipeline using modern AI tools
-                  — from ideation to published draft in under 15 minutes.
-                </p>
-              </div>
-              <div className="w-full md:w-[480px] lg:w-[560px] p-6 md:p-8 md:pl-0">
-                <div className="relative rounded-xl overflow-hidden border border-outline-variant/30 bg-black">
-                  <video
-                    className="w-full h-auto aspect-video object-cover"
-                    poster="/videos/poster.jpg"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    aria-label="Simple AI Academy introduction video"
-                  >
-                    <source
-                      src="/videos/SimpleAi Intro optimized.mp4"
-                      type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-outline-variant/30 bg-black">
+            <video
+              className="w-full h-auto aspect-video object-cover"
+              poster="/videos/poster.jpg"
+              controls
+              playsInline
+              preload="metadata"
+              aria-label="Simple AI Academy introduction video"
+            >
+              <source
+                src="/videos/SimpleAi Intro optimized.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            {/* Bottom label bar */}
+            <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-6 py-3">
+              <p className="text-white text-sm font-medium text-center">
+                Simple AI Academy — Introduction
+              </p>
             </div>
           </div>
+          <p className="mt-4 text-center text-on-surface-variant text-sm">
+            Watch the intro to see how we teach AI tools through live, practical examples.
+          </p>
         </motion.div>
       </motion.div>
     </section>
