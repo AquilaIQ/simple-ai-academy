@@ -9,15 +9,23 @@ ssh -p 2222 -i ~/.ssh/windsurf-vps-agent -o StrictHostKeyChecking=no root@187.12
 - **IP:** 187.124.236.215
 - **Port:** 2222
 - **Key:** `~/.ssh/windsurf-vps-agent`
-- **App dir:** `/home/manu/apps/DFpartners`
-- **Process manager:** PM2, app name `DFpartners`, runs as user `manu`
-- **Live URL:** https://anisoptera.io
+
+### Apps on VPS
+
+| App | Domain | Port | PM2 Name | Path |
+|-----|--------|------|----------|------|
+| **DFpartners** | https://anisoptera.io | `8080` | `DFpartners` | `/home/manu/apps/DFpartners` |
+| **biotech-hitl** | https://biotech.aquilaiq.com | `3002` | `biotech-hitl` | `/home/manu/apps/biotech-hitl` |
+| **simple-ai-academy** | https://simpleai.academy | `3000` | `simple-ai-academy` | `/home/manu/apps/simple-ai-academy` |
+
+All apps run as user `manu` via PM2.
+- **Live URL (primary):** https://anisoptera.io
 
 ---
 
 ## FILES MANAGED
 
-### Local Machine
+### Local Machine (DFpartners)
 - **Path:** `/Users/manu/Documents/1. DragonFly/transcripts/LandingPage/dragonfly-partner-landing/`
 - **Branch:** `main`
 - **Key files changed this session:**
@@ -26,7 +34,7 @@ ssh -p 2222 -i ~/.ssh/windsurf-vps-agent -o StrictHostKeyChecking=no root@187.12
   - `src/components/modals/GlobalModalsClient.tsx` — client wrapper for GlobalModals (ssr:false)
   - `src/app/layout.tsx` — swapped between ConditionalHeader/GlobalModalsClient vs Header/GlobalModals
 
-### VPS
+### VPS (DFpartners)
 - **Path:** `/home/manu/apps/DFpartners`
 - **Branch:** `VPSMigration` (SSH deploy key scoped to this branch only)
 - **Current stable commit:** `8417a33` — "feat(layout): add NWRABanner to layout"
@@ -36,7 +44,7 @@ ssh -p 2222 -i ~/.ssh/windsurf-vps-agent -o StrictHostKeyChecking=no root@187.12
   - `src/middleware.ts` — CSP middleware
   - `ecosystem.config.js` — PM2 config
 
-### GitHub
+### GitHub (DFpartners)
 - **Repo:** `github.com:AquilaIQ/DFpartners.git`
 - **Three branches:**
   - `main` — full feature branch (includes experimental pages)
@@ -44,6 +52,32 @@ ssh -p 2222 -i ~/.ssh/windsurf-vps-agent -o StrictHostKeyChecking=no root@187.12
   - `VPSMigration` — legacy production branch (superseded by `deploy`)
 - **deploy tip:** `7a71ee9` — matches VPS production state
 - **VPSMigration tip:** `5a14d17` — deploy was forked from here
+
+### GitHub (simple-ai-academy)
+- **Repo:** `https://github.com/AquilaIQ/simple-ai-academy.git`
+- **Branch:** `main`
+- **VPS Path:** `/home/manu/apps/simple-ai-academy`
+- **PM2 Name:** `simple-ai-academy`
+- **Port:** `3000`
+- **Domain:** https://simpleai.academy
+- **SSL:** Let's Encrypt via Certbot (expires 2026-09-18, auto-renew)
+- **Key VPS files:**
+  - `next.config.mjs` — static export removed, SSR enabled
+  - `package.json` — `"start": "next start -p 3000"`
+  - `ecosystem.config.js` — PM2 config
+  - `.env.local` — Supabase credentials
+- **Nginx config:** `/etc/nginx/sites-enabled/simpleai.academy`
+- **Deploy workflow:**
+  ```bash
+  ssh -p 2222 -i ~/.ssh/windsurf-vps-agent root@187.124.236.215
+  cd /home/manu/apps/simple-ai-academy
+  git pull origin main
+  pnpm install
+  rm -rf .next
+  pnpm build
+  pm2 restart simple-ai-academy
+  curl -s -o /dev/null -w '%{http_code}' https://simpleai.academy
+  ```
 
 ### Route Archiving (Jun 2, 2026)
 The following `main` routes were prefixed with `_` to disable Next.js routing (files preserved):
