@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Change `start` script to `next start -p 3000` for dedicated port binding
 - Add `ecosystem.config.js` for PM2 process management on VPS
 - Prepare codebase for GitHub remote and VPS deployment
+- Deploy to VPS `187.124.236.215` on port `3000` via PM2; HTTP 200 confirmed
 
 ### feat
 - Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Framer Motion
