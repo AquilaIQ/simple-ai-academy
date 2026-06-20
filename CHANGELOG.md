@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### config
+- Remove `output: "export"` from `next.config.mjs` to enable SSR for VPS deployment
+- Change `start` script to `next start -p 3000` for dedicated port binding
+- Add `ecosystem.config.js` for PM2 process management on VPS
+- Prepare codebase for GitHub remote and VPS deployment
+
 ### feat
 - Initialize Next.js 14 project with TypeScript, Tailwind CSS, and Framer Motion
 - Add shared animation variants (fadeInUp, scaleIn, staggerContainer, slideInLeft, slideInRight)
