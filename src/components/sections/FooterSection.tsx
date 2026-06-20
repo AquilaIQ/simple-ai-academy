@@ -22,7 +22,7 @@ export default function FooterSection() {
             Ready to simplify your work?
           </h2>
           <a
-            href="https://wa.me/"
+            href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary-container transition-colors group text-lg"

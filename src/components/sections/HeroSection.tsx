@@ -50,7 +50,7 @@ export default function HeroSection() {
         {/* CTA */}
         <motion.div variants={fadeInUp}>
           <a
-            href="https://wa.me/"
+            href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary-container to-secondary-container/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-transform hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"

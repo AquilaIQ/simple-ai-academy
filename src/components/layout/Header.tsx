@@ -78,7 +78,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="https://wa.me/"
+              href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary-container text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all hover:opacity-90 shadow-md"
@@ -138,7 +138,7 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="https://wa.me/"
+            href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-lg font-medium text-base transition-all hover:opacity-90 shadow-md"
