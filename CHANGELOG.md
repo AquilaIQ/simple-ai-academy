@@ -32,6 +32,13 @@ All notable changes to this project will be documented in this file.
 - Translate all form labels, placeholders, validation errors, and success messages
 - Update `html lang` attribute dynamically based on selected language
 
+### feat
+- Set up Supabase database (`curriculum_interests` table) with RLS policies for anonymous inserts
+- Create `src/lib/supabase.ts` client with `@supabase/supabase-js`
+- Wire `/api/curriculum` route to persist form submissions to Supabase
+- Add `.env.example` with placeholder Supabase credentials
+- Add `.env.local` (gitignored) with real project credentials
+
 ### design
 - Adopt warm minimalist aesthetic with Teal, Coral, and Sand accent palette
 - Use Level 1 ambient shadows (0px 4px 20px rgba(0,0,0,0.04)) on cards

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { supabase } from "@/lib/supabase";
 
 const schema = z.object({
   fullName: z.string().min(2),
@@ -19,9 +20,20 @@ export async function POST(request: Request) {
       );
     }
 
-    // In production, persist to database or send to CRM
-    // eslint-disable-next-line no-console
-    console.log("Curriculum interest:", parsed.data);
+    const { error } = await supabase.from("curriculum_interests").insert({
+      full_name: parsed.data.fullName,
+      bottleneck: parsed.data.bottleneck,
+      interests: parsed.data.interests,
+    });
+
+    if (error) {
+      // eslint-disable-next-line no-console
+      console.error("Supabase insert error:", error);
+      return NextResponse.json(
+        { error: "Failed to save submission" },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch {
