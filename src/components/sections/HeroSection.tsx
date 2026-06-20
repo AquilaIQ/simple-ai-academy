@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { MessageCircle } from "lucide-react";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 px-margin-mobile md:px-margin-desktop">
       {/* Decorative blur orbs */}
@@ -26,7 +29,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed px-4 py-1.5 rounded-full font-medium text-sm mb-6"
         >
           <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse" />
-          100% Live &amp; Interactive
+          {t("hero.badge")}
         </motion.div>
 
         {/* Headline */}
@@ -34,8 +37,8 @@ export default function HeroSection() {
           variants={fadeInUp}
           className="text-[40px] md:text-5xl lg:text-6xl font-bold text-on-background leading-[1.1] tracking-tight mb-6"
         >
-          Simple AI. Learn AI using AI.{" "}
-          <span className="text-primary-container">No Code. No Complexity.</span>
+          {t("hero.headline")}{" "}
+          <span className="text-primary-container">{t("hero.headlineAccent")}</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -43,8 +46,7 @@ export default function HeroSection() {
           variants={fadeInUp}
           className="text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10"
         >
-          100% Live, practical, and Simple training. Learn how to use advanced AI
-          tools through real-world examples that save you hours every single week.
+          {t("hero.subheadline")}
         </motion.p>
 
         {/* CTA */}
@@ -56,7 +58,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary-container to-secondary-container/90 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-transform hover:scale-105 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <MessageCircle size={22} />
-            Join the Live WhatsApp Community
+            {t("hero.cta")}
           </a>
         </motion.div>
 
@@ -72,23 +74,23 @@ export default function HeroSection() {
               controls
               playsInline
               preload="metadata"
-              aria-label="Simple AI Academy introduction video"
+              aria-label={t("hero.videoLabel")}
             >
               <source
                 src="/videos/SimpleAi Intro optimized.mp4"
                 type="video/mp4"
               />
-              Your browser does not support the video tag.
+              {t("hero.videoFallback")}
             </video>
             {/* Bottom label bar */}
             <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm px-6 py-3">
               <p className="text-white text-sm font-medium text-center">
-                Simple AI Academy — Introduction
+                {t("hero.videoLabel")}
               </p>
             </div>
           </div>
           <p className="mt-4 text-center text-on-surface-variant text-sm">
-            Watch the intro to see how we teach AI tools through live, practical examples.
+            {t("hero.videoCaption")}
           </p>
         </motion.div>
       </motion.div>

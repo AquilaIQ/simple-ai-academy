@@ -1,28 +1,31 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { staggerContainer, fadeInUp, scaleIn } from "@/lib/animations";
+import { staggerContainer, scaleIn } from "@/lib/animations";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Tv, CheckCircle, Zap } from "lucide-react";
 
-const values = [
-  {
-    icon: Tv,
-    title: "100% Live Sessions",
-    body: "No boring pre-recorded lectures. Ask questions and see AI tools run in real-time.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Dead Simple Examples",
-    body: "We skip the heavy tech jargon. If you can type a text message, you can master these tools.",
-  },
-  {
-    icon: Zap,
-    title: "Instant Utility",
-    body: "Every tool we showcase is selected to solve everyday problems, automate tasks, and amplify your output.",
-  },
-];
-
 export default function CoreValuesSection() {
+  const { t } = useLanguage();
+
+  const values = [
+    {
+      icon: Tv,
+      title: t("values.title1"),
+      body: t("values.body1"),
+    },
+    {
+      icon: CheckCircle,
+      title: t("values.title2"),
+      body: t("values.body2"),
+    },
+    {
+      icon: Zap,
+      title: t("values.title3"),
+      body: t("values.body3"),
+    },
+  ];
+
   return (
     <section
       id="values"

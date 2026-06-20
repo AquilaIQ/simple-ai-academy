@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function FooterSection() {
+  const { t } = useLanguage();
+
   return (
     <footer
       id="faq"
@@ -19,7 +22,7 @@ export default function FooterSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-on-surface">
-            Ready to simplify your work?
+            {t("footer.ctaHeadline")}
           </h2>
           <a
             href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
@@ -28,7 +31,7 @@ export default function FooterSection() {
             className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary-container transition-colors group text-lg"
           >
             <MessageCircle size={20} />
-            Join the WhatsApp Community
+            {t("footer.ctaLink")}
             <ArrowRight
               size={18}
               className="transition-transform group-hover:translate-x-1"
@@ -40,26 +43,26 @@ export default function FooterSection() {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-on-surface-variant text-sm font-medium text-center md:text-left">
-            &copy; {new Date().getFullYear()} The Simple AI Academy. All rights reserved.
+            &copy; {new Date().getFullYear()} {t("footer.copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <a
               href="#"
               className="text-on-surface-variant text-sm font-medium hover:text-secondary-container transition-colors"
             >
-              Privacy Policy
+              {t("footer.privacy")}
             </a>
             <a
               href="#"
               className="text-on-surface-variant text-sm font-medium hover:text-secondary-container transition-colors"
             >
-              Terms of Service
+              {t("footer.terms")}
             </a>
             <a
               href="#"
               className="text-on-surface-variant text-sm font-medium hover:text-secondary-container transition-colors"
             >
-              Contact Us
+              {t("footer.contact")}
             </a>
           </div>
         </div>

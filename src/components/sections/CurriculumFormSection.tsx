@@ -2,31 +2,33 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { fadeInUp, staggerContainer, scaleIn } from "@/lib/animations";
+import { fadeInUp } from "@/lib/animations";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Check, Loader2 } from "lucide-react";
 
-const interestOptions = [
-  { value: "content", label: "Content Creation" },
-  { value: "automation", label: "Task Automation" },
-  { value: "data", label: "Data Analysis" },
-  { value: "media", label: "Image & Video Generation" },
-  { value: "productivity", label: "Everyday Productivity" },
-];
-
-const schema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters"),
-  bottleneck: z.string().min(3, "Please describe your bottleneck"),
-  interests: z.array(z.string()).min(1, "Select at least one capability"),
-});
-
-type FormData = z.infer<typeof schema>;
-
 export default function CurriculumFormSection() {
+  const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
+
+  const interestOptions = [
+    { value: "content", label: t("form.interest.content") },
+    { value: "automation", label: t("form.interest.automation") },
+    { value: "data", label: t("form.interest.data") },
+    { value: "media", label: t("form.interest.media") },
+    { value: "productivity", label: t("form.interest.productivity") },
+  ];
+
+  const schema = z.object({
+    fullName: z.string().min(2, t("form.error.fullName")),
+    bottleneck: z.string().min(3, t("form.error.bottleneck")),
+    interests: z.array(z.string()).min(1, t("form.error.interests")),
+  });
+
+  type FormData = z.infer<typeof schema>;
 
   const {
     register,
@@ -64,7 +66,6 @@ export default function CurriculumFormSection() {
       setSubmitted(true);
       reset();
     } catch {
-      // Graceful fallback for static export: simulate success
       await new Promise((resolve) => setTimeout(resolve, 800));
       setSubmitted(true);
       reset();
@@ -87,11 +88,10 @@ export default function CurriculumFormSection() {
           {/* Header */}
           <div className="bg-tertiary-fixed p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-on-surface mb-2">
-              Shape Your Curriculum
+              {t("form.title")}
             </h2>
             <p className="text-on-surface-variant">
-              Tell us exactly what you want to learn, and we will build live
-              modules around your answers.
+              {t("form.subtitle")}
             </p>
           </div>
 
@@ -110,16 +110,16 @@ export default function CurriculumFormSection() {
                     <Check size={24} />
                   </div>
                   <h3 className="text-xl font-bold text-green-800 mb-2">
-                    You&apos;re on the list!
+                    {t("form.successTitle")}
                   </h3>
                   <p className="text-green-700">
-                    We&apos;ll be in touch with your personalized curriculum soon.
+                    {t("form.successBody")}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
                     className="mt-6 text-sm text-green-700 underline hover:text-green-900"
                   >
-                    Submit another response
+                    {t("form.submitAnother")}
                   </button>
                 </motion.div>
               ) : (
@@ -138,12 +138,12 @@ export default function CurriculumFormSection() {
                       htmlFor="fullName"
                       className="block text-sm font-semibold text-on-surface"
                     >
-                      Full Name
+                      {t("form.fullName")}
                     </label>
                     <input
                       id="fullName"
                       type="text"
-                      placeholder="John Doe"
+                      placeholder={t("form.fullNamePlaceholder")}
                       className={`w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors font-body-md text-body-md bg-white ${
                         errors.fullName
                           ? "border-error focus:border-error"
@@ -164,13 +164,12 @@ export default function CurriculumFormSection() {
                       htmlFor="bottleneck"
                       className="block text-sm font-semibold text-on-surface"
                     >
-                      What is your main professional bottleneck or manual task
-                      right now?
+                      {t("form.bottleneck")}
                     </label>
                     <input
                       id="bottleneck"
                       type="text"
-                      placeholder="E.g., Spending too much time on emails..."
+                      placeholder={t("form.bottleneckPlaceholder")}
                       className={`w-full px-4 py-3 rounded-xl border-2 outline-none transition-colors font-body-md text-body-md bg-white ${
                         errors.bottleneck
                           ? "border-error focus:border-error"
@@ -188,7 +187,7 @@ export default function CurriculumFormSection() {
                   {/* Interests */}
                   <div className="space-y-3">
                     <span className="block text-sm font-semibold text-on-surface">
-                      Which AI capabilities interest you most?
+                      {t("form.interests")}
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {interestOptions.map((option) => {
@@ -248,10 +247,10 @@ export default function CurriculumFormSection() {
                     {isSubmitting ? (
                       <>
                         <Loader2 size={20} className="animate-spin" />
-                        Submitting...
+                        {t("form.submitting")}
                       </>
                     ) : (
-                      "Submit & Save My Spot"
+                      t("form.submit")
                     )}
                   </button>
                 </motion.form>

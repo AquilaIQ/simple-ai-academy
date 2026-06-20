@@ -24,6 +24,14 @@ All notable changes to this project will be documented in this file.
 - Replace HeroSection placeholder box with native `<video>` player using optimized MP4 + poster
 - Add video accessibility: `aria-label`, `playsInline`, `preload="metadata"`, controls
 
+### feat
+- Add full English/Spanish bilingual support with React Context i18n
+- Create `LanguageProvider` with `localStorage` persistence and browser language detection
+- Add EN/ES language toggle pill in Header (desktop + mobile drawer)
+- Translate all section components: Hero, Core Values, Curriculum Form, Footer
+- Translate all form labels, placeholders, validation errors, and success messages
+- Update `html lang` attribute dynamically based on selected language
+
 ### design
 - Adopt warm minimalist aesthetic with Teal, Coral, and Sand accent palette
 - Use Level 1 ambient shadows (0px 4px 20px rgba(0,0,0,0.04)) on cards

@@ -2,17 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Menu, X } from "lucide-react";
 
-const navLinks = [
-  { label: "Curriculum", href: "#curriculum" },
-  { label: "Values", href: "#values" },
-  { label: "FAQ", href: "#faq" },
-];
-
 export default function Header() {
+  const { t, lang, setLang } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t("nav.curriculum"), href: "#curriculum" },
+    { label: t("nav.values"), href: "#values" },
+    { label: t("nav.faq"), href: "#faq" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -45,7 +47,7 @@ export default function Header() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
       >
-        Skip to main content
+        {t("skipLink")}
       </a>
       <header
         className={cn(
@@ -77,13 +79,39 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <div className="flex items-center bg-surface-container rounded-lg p-1 border border-outline-variant/30">
+              <button
+                onClick={() => setLang("en")}
+                className={cn(
+                  "px-2.5 py-1 rounded-md text-xs font-bold transition-colors",
+                  lang === "en"
+                    ? "bg-primary text-white"
+                    : "text-on-surface-variant hover:text-primary"
+                )}
+                aria-pressed={lang === "en"}
+              >
+                {t("lang.en")}
+              </button>
+              <button
+                onClick={() => setLang("es")}
+                className={cn(
+                  "px-2.5 py-1 rounded-md text-xs font-bold transition-colors",
+                  lang === "es"
+                    ? "bg-primary text-white"
+                    : "text-on-surface-variant hover:text-primary"
+                )}
+                aria-pressed={lang === "es"}
+              >
+                {t("lang.es")}
+              </button>
+            </div>
             <a
               href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary-container text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-all hover:opacity-90 shadow-md"
             >
-              Join WhatsApp
+              {t("nav.joinWhatsApp")}
             </a>
           </div>
 
@@ -116,10 +144,10 @@ export default function Header() {
       >
         <div className="flex items-center justify-between p-6 border-b border-outline-variant/30">
           <span id="mobile-menu-title" className="text-lg font-bold text-primary">
-            Menu
+            {t("nav.menu")}
           </span>
           <button
-            aria-label="Close menu"
+            aria-label={t("nav.closeMenu")}
             className="text-on-surface-variant p-2"
             onClick={() => setMobileOpen(false)}
           >
@@ -137,14 +165,40 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <div className="flex items-center justify-center bg-surface-container rounded-lg p-1 border border-outline-variant/30 mt-2">
+            <button
+              onClick={() => setLang("en")}
+              className={cn(
+                "flex-1 px-3 py-2 rounded-md text-sm font-bold transition-colors",
+                lang === "en"
+                  ? "bg-primary text-white"
+                  : "text-on-surface-variant hover:text-primary"
+              )}
+              aria-pressed={lang === "en"}
+            >
+              {t("lang.en")}
+            </button>
+            <button
+              onClick={() => setLang("es")}
+              className={cn(
+                "flex-1 px-3 py-2 rounded-md text-sm font-bold transition-colors",
+                lang === "es"
+                  ? "bg-primary text-white"
+                  : "text-on-surface-variant hover:text-primary"
+              )}
+              aria-pressed={lang === "es"}
+            >
+              {t("lang.es")}
+            </button>
+          </div>
           <a
             href="https://chat.whatsapp.com/G9Rk7RvcygFJ5t5I2Y5ur3"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-lg font-medium text-base transition-all hover:opacity-90 shadow-md"
+            className="mt-2 inline-flex items-center justify-center gap-2 bg-secondary-container text-white px-6 py-3 rounded-lg font-medium text-base transition-all hover:opacity-90 shadow-md"
             onClick={() => setMobileOpen(false)}
           >
-            Join the Live WhatsApp Community
+            {t("nav.joinWhatsAppMobile")}
           </a>
         </div>
       </div>
