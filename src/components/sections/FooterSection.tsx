@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function FooterSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <footer
@@ -15,6 +15,7 @@ export default function FooterSection() {
     >
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-20">
         <motion.div
+          key={lang}
           className="flex flex-col items-center text-center space-y-8"
           variants={fadeInUp}
           initial="hidden"

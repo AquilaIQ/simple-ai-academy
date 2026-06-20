@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Tv, CheckCircle, Zap } from "lucide-react";
 
 export default function CoreValuesSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const values = [
     {
@@ -33,6 +33,7 @@ export default function CoreValuesSection() {
     >
       <div className="max-w-container-max mx-auto">
         <motion.div
+          key={lang}
           className="grid grid-cols-1 md:grid-cols-3 gap-gutter"
           variants={staggerContainer}
           initial="hidden"

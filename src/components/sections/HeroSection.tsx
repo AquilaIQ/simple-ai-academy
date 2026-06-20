@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { MessageCircle } from "lucide-react";
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28 px-margin-mobile md:px-margin-desktop">
@@ -17,6 +17,7 @@ export default function HeroSection() {
       </div>
 
       <motion.div
+        key={lang}
         className="relative z-10 max-w-4xl mx-auto flex flex-col items-center text-center"
         variants={staggerContainer}
         initial="hidden"

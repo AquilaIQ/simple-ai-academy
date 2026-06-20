@@ -10,7 +10,7 @@ import { z } from "zod";
 import { Check, Loader2, Calendar, ExternalLink, Video } from "lucide-react";
 
 export default function CurriculumFormSection() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState("");
 
@@ -81,6 +81,7 @@ export default function CurriculumFormSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Form card */}
         <motion.div
+          key={lang}
           className="bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden"
           variants={fadeInUp}
           initial="hidden"
@@ -289,6 +290,7 @@ export default function CurriculumFormSection() {
 
         {/* Event card */}
         <motion.div
+          key={`event-${lang}`}
           className="bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden"
           variants={fadeInUp}
           initial="hidden"
