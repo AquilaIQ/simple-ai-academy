@@ -7,7 +7,7 @@ import { useLanguage } from "@/components/providers/LanguageProvider";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, Calendar, ExternalLink, Video } from "lucide-react";
 
 export default function CurriculumFormSection() {
   const { t } = useLanguage();
@@ -78,7 +78,8 @@ export default function CurriculumFormSection() {
       id="curriculum"
       className="py-20 md:py-28 px-margin-mobile md:px-margin-desktop"
     >
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        {/* Form card */}
         <motion.div
           className="bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden"
           variants={fadeInUp}
@@ -283,6 +284,60 @@ export default function CurriculumFormSection() {
                 </motion.form>
               )}
             </AnimatePresence>
+          </div>
+        </motion.div>
+
+        {/* Event card */}
+        <motion.div
+          className="bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="bg-secondary-fixed p-10 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-on-surface mb-2">
+              {t("event.title")}
+            </h2>
+            <p className="text-on-surface-variant">
+              {t("event.subtitle")}
+            </p>
+          </div>
+
+          <div className="p-8 md:p-12 flex flex-col gap-6">
+            <div className="flex items-center gap-3 text-on-surface-variant">
+              <Video size={18} />
+              <span className="text-sm font-medium">{t("event.platform")}</span>
+            </div>
+
+            <p className="text-on-surface leading-relaxed">
+              {t("event.description")}
+            </p>
+
+            <div className="space-y-2">
+              <span className="text-sm font-semibold text-on-surface">
+                {t("event.hosts")}
+              </span>
+              <div className="flex flex-wrap gap-3">
+                <span className="inline-flex items-center gap-2 bg-surface-container-low text-on-surface-variant px-3 py-1.5 rounded-full text-sm font-medium">
+                  Juan Camilo Barrera
+                </span>
+                <span className="inline-flex items-center gap-2 bg-surface-container-low text-on-surface-variant px-3 py-1.5 rounded-full text-sm font-medium">
+                  Manuel Navarrete
+                </span>
+              </div>
+            </div>
+
+            <a
+              href="https://lu.ma/0ckhpqab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-secondary-container text-white py-4 rounded-xl font-bold text-lg transition-all hover:bg-on-secondary-fixed-variant shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+            >
+              <Calendar size={20} />
+              {t("event.cta")}
+              <ExternalLink size={18} />
+            </a>
           </div>
         </motion.div>
       </div>

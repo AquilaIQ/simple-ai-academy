@@ -39,6 +39,20 @@ All notable changes to this project will be documented in this file.
 - Add `.env.example` with placeholder Supabase credentials
 - Add `.env.local` (gitignored) with real project credentials
 
+### feat
+- Add email field to curriculum form with validation
+- Add email translations (EN/ES) to i18n dictionary
+- Update Zod schema and API route to include email
+- Add add-email-column.sql migration for Supabase table
+
+### feat
+- Add Luma event card alongside curriculum form in two-column layout
+- Event card mirrors form card styling (rounded-2xl, shadow-card, border) for visual cohesion
+- Form header uses `bg-tertiary-fixed`, event header uses `bg-secondary-fixed` for differentiation
+- Event card includes platform badge, description, host chips, and CTA to Luma registration
+- Fully translated event content in EN/ES
+- Responsive: stacks vertically on mobile, side-by-side on lg+
+
 ### design
 - Adopt warm minimalist aesthetic with Teal, Coral, and Sand accent palette
 - Use Level 1 ambient shadows (0px 4px 20px rgba(0,0,0,0.04)) on cards

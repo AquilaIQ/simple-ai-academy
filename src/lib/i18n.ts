@@ -69,6 +69,15 @@ export const translations = {
     "form.submitAnother": "Submit another response",
     "form.serverError": "Something went wrong. Please try again.",
 
+    // Event card
+    "event.title": "Upcoming Live Session",
+    "event.subtitle": "SimpleAI.Academy — Session 2",
+    "event.description":
+      "Most people want to learn AI but don't know where to start. We're doing real stuff live, no edits. For this second session, we'll be analyzing data with AI, finding patterns, catching mistakes, and gathering insights.",
+    "event.hosts": "Hosted by",
+    "event.platform": "YouTube Live",
+    "event.cta": "Register on Luma",
+
     // Footer
     "footer.ctaHeadline": "Ready to simplify your work?",
     "footer.ctaLink": "Join the WhatsApp Community",
@@ -144,6 +153,15 @@ export const translations = {
       "Nos pondremos en contacto contigo con tu currículo personalizado pronto.",
     "form.submitAnother": "Enviar otra respuesta",
     "form.serverError": "Algo salió mal. Por favor intenta de nuevo.",
+
+    // Event card
+    "event.title": "Próxima Sesión en Vivo",
+    "event.subtitle": "SimpleAI.Academy — Sesión 2",
+    "event.description":
+      "La mayoría quiere aprender IA pero no sabe por dónde empezar. Haremos cosas reales, en vivo, sin cortes. En la segunda sesión vamos a analizar data con IA, encontrar patrones, identificar errores, y conseguir insights.",
+    "event.hosts": "Presentado por",
+    "event.platform": "YouTube Live",
+    "event.cta": "Registrarse en Luma",
 
     // Footer
     "footer.ctaHeadline": "¿Listo para simplificar tu trabajo?",
