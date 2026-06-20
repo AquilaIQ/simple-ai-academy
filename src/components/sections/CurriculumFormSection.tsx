@@ -295,6 +295,16 @@ export default function CurriculumFormSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
+          {/* Event image */}
+          <div className="relative w-full aspect-video bg-surface-container-low">
+            <img
+              src="/Luma Simple AI.jpeg"
+              alt="SimpleAI.Academy Session 2"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
           <div className="bg-secondary-fixed p-10 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-on-surface mb-2">
               {t("event.title")}
