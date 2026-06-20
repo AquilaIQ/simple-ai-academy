@@ -301,7 +301,6 @@ export default function CurriculumFormSection() {
               src="/Luma Simple AI.jpeg"
               alt="SimpleAI.Academy Session 2"
               className="w-full h-full object-cover"
-              loading="lazy"
             />
           </div>
 
