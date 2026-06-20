@@ -88,7 +88,7 @@ export default function CurriculumFormSection() {
           viewport={{ once: true }}
         >
           {/* Header */}
-          <div className="bg-tertiary-fixed p-10 text-center">
+          <div className="bg-tertiary-fixed p-6 md:p-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-on-surface mb-2">
               {t("form.title")}
             </h2>
@@ -98,7 +98,7 @@ export default function CurriculumFormSection() {
           </div>
 
           {/* Form */}
-          <div className="p-8 md:p-12">
+          <div className="p-6 md:p-8">
             <AnimatePresence mode="wait">
               {submitted ? (
                 <motion.div
@@ -131,7 +131,7 @@ export default function CurriculumFormSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit(onSubmit)}
-                  className="space-y-6"
+                  className="space-y-5"
                   noValidate
                 >
                   {/* Full Name */}
@@ -305,7 +305,7 @@ export default function CurriculumFormSection() {
             />
           </div>
 
-          <div className="bg-secondary-fixed p-10 text-center">
+          <div className="bg-secondary-fixed p-6 md:p-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-on-surface mb-2">
               {t("event.title")}
             </h2>
@@ -314,7 +314,7 @@ export default function CurriculumFormSection() {
             </p>
           </div>
 
-          <div className="p-8 md:p-12 flex flex-col gap-6">
+          <div className="p-6 md:p-8 flex flex-col gap-5">
             <div className="flex items-center gap-3 text-on-surface-variant">
               <Video size={18} />
               <span className="text-sm font-medium">{t("event.platform")}</span>
