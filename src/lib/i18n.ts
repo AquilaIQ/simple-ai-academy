@@ -17,7 +17,6 @@ export const translations = {
     "lang.es": "ES",
 
     // Hero
-    "hero.badge": "100% Live & Interactive",
     "hero.headline": "Simple AI. Learn AI using AI.",
     "hero.headlineAccent": "No Code. No Complexity.",
     "hero.subheadline":
@@ -91,7 +90,6 @@ export const translations = {
     "lang.es": "ES",
 
     // Hero
-    "hero.badge": "100% En Vivo e Interactivo",
     "hero.headline": "Simple AI. Aprende IA usando IA.",
     "hero.headlineAccent": "Sin Código. Sin Complejidad.",
     "hero.subheadline":

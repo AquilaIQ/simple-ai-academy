@@ -23,15 +23,6 @@ export default function HeroSection() {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {/* Badge */}
-        <motion.div
-          variants={fadeInUp}
-          className="inline-flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed px-4 py-1.5 rounded-full font-medium text-sm mb-6"
-        >
-          <span className="flex h-2 w-2 rounded-full bg-secondary animate-pulse" />
-          {t("hero.badge")}
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           variants={fadeInUp}
