@@ -60,15 +60,15 @@ export default function HeroSection() {
           </a>
         </motion.div>
 
-        {/* Hero visual placeholder card */}
+        {/* Hero video card */}
         <motion.div
           variants={fadeInUp}
           className="mt-16 w-full max-w-5xl"
         >
-          <div className="relative bg-white rounded-2xl shadow-card border border-outline-variant/40 p-8 md:p-12 overflow-hidden">
+          <div className="relative bg-white rounded-2xl shadow-card border border-outline-variant/40 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary-container/5 pointer-events-none" />
-            <div className="relative flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-1 text-left space-y-4">
+            <div className="relative flex flex-col md:flex-row items-center gap-0">
+              <div className="flex-1 p-8 md:p-12 space-y-4">
                 <div className="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
                   Live Session Preview
                 </div>
@@ -80,10 +80,23 @@ export default function HeroSection() {
                   — from ideation to published draft in under 15 minutes.
                 </p>
               </div>
-              <div className="w-full md:w-64 h-40 md:h-48 bg-surface-container-high rounded-xl border border-outline-variant/30 flex items-center justify-center">
-                <span className="text-on-surface-variant text-sm font-medium">
-                  Interactive Demo Placeholder
-                </span>
+              <div className="w-full md:w-[480px] lg:w-[560px] p-6 md:p-8 md:pl-0">
+                <div className="relative rounded-xl overflow-hidden border border-outline-variant/30 bg-black">
+                  <video
+                    className="w-full h-auto aspect-video object-cover"
+                    poster="/videos/poster.jpg"
+                    controls
+                    playsInline
+                    preload="metadata"
+                    aria-label="Simple AI Academy introduction video"
+                  >
+                    <source
+                      src="/videos/SimpleAi Intro optimized.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
             </div>
           </div>

@@ -18,6 +18,12 @@ All notable changes to this project will be documented in this file.
 - Add Geist font via next/font for optimal loading performance
 - Update DESIGN.md with NWRA PRD-inspired animation system, component inventory, form spec, responsive behavior, accessibility, and file structure
 
+### feat
+- Optimize `SimpleAi Intro.mp4` with ffmpeg: H.264, CRF 28, faststart, reduced from 118MB to 5.3MB
+- Extract poster.jpg thumbnail from first frame for video placeholder
+- Replace HeroSection placeholder box with native `<video>` player using optimized MP4 + poster
+- Add video accessibility: `aria-label`, `playsInline`, `preload="metadata"`, controls
+
 ### design
 - Adopt warm minimalist aesthetic with Teal, Coral, and Sand accent palette
 - Use Level 1 ambient shadows (0px 4px 20px rgba(0,0,0,0.04)) on cards
